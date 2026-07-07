@@ -27,3 +27,13 @@ jobs:
               uses: google-github-actions/auth@v3
               with:
                 credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+
+            - name: Push Docker image
+              run: docker push europe-central2-docker.pkg.dev/prj-cloud-sandbox-repo/pipeline-deploy-prj/app:latest
+
+            - name: Wdrożenie do Cloud Run
+              uses: google-github-actions/deploy-cloudrun@v2
+              with:
+                service: my-flask-app-test
+                region: europe-central2       
+                image: europe-central2-docker.pkg.dev/prj-cloud-sandbox-repo/pipeline-deploy-prj/app:latest
