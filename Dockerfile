@@ -6,7 +6,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # install app
-COPY main.py /
+COPY main.py .
 
 ENV FLASK_APP=main.py
 EXPOSE 8080
