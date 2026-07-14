@@ -43,3 +43,4 @@ jobs:
                 service: my-flask-app-test
                 region: europe-central2       
                 image: europe-central2-docker.pkg.dev/prj-cloud-sandbox-repo/github-actions-repo/flask-app:latest
+                flags: '--allow-unauthenticated'
