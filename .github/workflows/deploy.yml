@@ -17,7 +17,7 @@ jobs:
               with:
                 python-version: '3.10'
             
-            - name: Istall dependencies
+            - name: Install dependencies
               run: pip install -r requirements.txt
 
             - name: Run tests
@@ -37,7 +37,7 @@ jobs:
             - name: Push Docker image
               run: docker push europe-central2-docker.pkg.dev/prj-cloud-sandbox-repo/github-actions-repo/flask-app:latest
 
-            - name: Wdrożenie do Cloud Run
+            - name: Deploy to Cloud Run
               uses: google-github-actions/deploy-cloudrun@v2
               with:
                 service: my-flask-app-test
