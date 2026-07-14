@@ -29,11 +29,11 @@ jobs:
                 credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
 
             - name: Push Docker image
-              run: docker push europe-central2-docker.pkg.dev/prj-cloud-sandbox-repo/pipeline-deploy-prj/app:latest
+              run: docker push europe-central2-docker.pkg.dev/prj-cloud-sandbox-repo/github-actions-repo/flask-app:latest
 
             - name: Wdrożenie do Cloud Run
               uses: google-github-actions/deploy-cloudrun@v2
               with:
                 service: my-flask-app-test
                 region: europe-central2       
-                image: europe-central2-docker.pkg.dev/prj-cloud-sandbox-repo/pipeline-deploy-prj/app:latest
+                image: europe-central2-docker.pkg.dev/prj-cloud-sandbox-repo/github-actions-repo/flask-app:latest
